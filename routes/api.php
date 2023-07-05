@@ -46,4 +46,11 @@ Route::get('/login', function(Request $request){
     return $token;
 });
 
+// get authenticated user
+
+Route::middleware('auth:api')->get('/me',function(){
+    $user = auth()->user();
+
+    return $user;
+});
 //logout a user

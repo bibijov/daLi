@@ -17,4 +17,12 @@ class Post extends Model
     protected $casts=[
         'likes'=>'integer',
     ];
+
+    public function author(){
+        return $this->belongsTo(User::Class, 'user_id');
+    }
+
+    public function comments(){
+        return $this->hasMany(Comment::Class);
+    }
 }
